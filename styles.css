@@ -149,8 +149,8 @@ img { max-width: 100%; display: block; }
   align-items: center;
   padding: 120px 0 80px;
   background:
-    linear-gradient(135deg, rgba(250, 250, 247, 0.92) 0%, rgba(248, 224, 228, 0.55) 100%),
-    url('https://sfile.chatglm.cn/images-ppt/45a683701161.jpg') center/cover no-repeat;
+    linear-gradient(135deg, rgba(250, 250, 247, 0.88) 0%, rgba(248, 224, 228, 0.55) 100%),
+    url('https://sfile.chatglm.cn/images-ppt/247b4f53bf41.jpg') center/cover no-repeat;
   overflow: hidden;
 }
 .hero-overlay {
@@ -222,6 +222,15 @@ img { max-width: 100%; display: block; }
 .hero-scroll:hover { color: var(--accent); }
 .hero-scroll svg { transition: transform 0.3s ease; }
 .hero-scroll:hover svg { transform: translateY(4px); }
+
+.hero-caption {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: italic;
+  letter-spacing: 0.3px;
+  max-width: 500px;
+}
 
 /* ============ SECTION ============ */
 .section {
@@ -410,15 +419,41 @@ strong { color: var(--ink); font-weight: 600; }
 .pos-img {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16/10;
   background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
 }
 .pos-img img {
-  width: 100%; height: 100%;
+  width: 100%;
+  aspect-ratio: 16/10;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
 .pos-card:hover .pos-img img { transform: scale(1.06); }
+.pos-img figcaption {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-style: italic;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  line-height: 1.4;
+}
+.pos-note {
+  margin-top: 12px !important;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  font-size: 14px !important;
+}
+.positions-note {
+  margin-top: 32px;
+  padding: 18px 24px;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
 .pos-body {
   padding: 22px 22px 26px;
   flex: 1;
@@ -447,56 +482,46 @@ strong { color: var(--ink); font-weight: 600; }
   line-height: 1.65;
 }
 
-/* ============ TECHNIQUES ============ */
-.techniques-grid {
+/* ============ TECHNIQUES LIST ============ */
+.techniques-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
   margin-bottom: 60px;
 }
-.tech-card {
+.tech-item {
   background: var(--surface);
   border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  overflow: hidden;
+  padding: 24px 26px;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.tech-card:hover {
-  transform: translateY(-4px);
+.tech-item:hover {
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
-.tech-img {
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  background: var(--bg-alt);
-}
-.tech-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.tech-card:hover .tech-img img { transform: scale(1.06); }
-.tech-body { padding: 20px; }
-.tech-body h4 {
+.tech-item h4 {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 8px;
+  letter-spacing: -0.2px;
 }
-.tech-body h4 span {
+.tech-item h4 span {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink-muted);
   font-style: italic;
 }
-.tech-body p {
-  font-size: 14px;
+.tech-item p {
+  font-size: 15px;
   color: var(--ink-soft);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* Submissions block */
@@ -643,16 +668,27 @@ strong { color: var(--ink); font-weight: 600; }
   box-shadow: var(--shadow-md);
 }
 .athlete-img {
-  aspect-ratio: 4/3;
   overflow: hidden;
   background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
 }
 .athlete-img img {
-  width: 100%; height: 100%;
+  width: 100%;
+  aspect-ratio: 4/3;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 .athlete-card:hover .athlete-img img { transform: scale(1.05); }
+.athlete-img figcaption {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-style: italic;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  line-height: 1.4;
+}
 .athlete-body { padding: 24px; }
 .athlete-body h4 {
   font-family: var(--font-display);
@@ -731,7 +767,7 @@ strong { color: var(--ink); font-weight: 600; }
   .dual-portraits { grid-template-columns: 1fr 1fr; gap: 20px; }
 
   .positions-grid { grid-template-columns: repeat(2, 1fr); }
-  .techniques-grid { grid-template-columns: repeat(2, 1fr); }
+  .techniques-list { grid-template-columns: repeat(2, 1fr); }
   .submissions-images { grid-template-columns: 1fr; }
   .athletes-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -776,7 +812,7 @@ strong { color: var(--ink); font-weight: 600; }
   .dual-portraits { grid-template-columns: 1fr; }
 
   .positions-grid { grid-template-columns: 1fr; }
-  .techniques-grid { grid-template-columns: 1fr; }
+  .techniques-list { grid-template-columns: 1fr; }
   .athletes-grid { grid-template-columns: 1fr; }
 
   .timeline { padding: 28px 22px; }
